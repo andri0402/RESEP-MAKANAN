@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Resep - ResepMakanan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 80px;
+        }
+        
+        .recipe-header {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .recipe-image {
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .meta-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .meta-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .meta-icon {
+            font-size: 1.5rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+        
+        .section-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+            padding: 1rem 1.5rem;
+        }
+        
+        .ingredients-list li, .steps-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .ingredients-list li:last-child, .steps-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .recipe-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+        
+        @media (max-width: 768px) {
+            .recipe-image {
+                height: 250px;
+            }
+            
+            body {
+                padding-top: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top" style="background: linear-gradient(90deg, #11998e, #38ef7d) !important;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-utensils me-2"></i>ResepMakanan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home me-1"></i> Beranda
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="resep.html">
+                            <i class="fas fa-book me-1"></i> Resep
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <i class="fas fa-info-circle me-1"></i> Tentang Kami
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-envelope me-1"></i> Kontak
+                        </a>
+                    </li>
+                </ul>
+                <form class="d-flex me-2" action="search.html" method="GET">
+                    <div class="input-group">
+                        <input class="form-control" type="search" name="q" placeholder="Cari resep..." aria-label="Search">
+                        <button class="btn btn-light" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+                <a href="admin/dashboard.html" class="btn btn-outline-light">
+                    <i class="fas fa-lock me-1"></i> Admin
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Recipe Content -->
+    <div class="container">
+        <!-- Back Button -->
+        <a href="javascript:history.back()" class="btn btn-secondary mt-4 mb-3">
+            <i class="fas fa-arrow-left me-1"></i> Kembali
+        </a>
+
+        <!-- Recipe Header -->
+        <div class="recipe-header">
+            <div class="container text-center">
+                <h1 class="fw-bold" id="recipe-title">Nasi Goreng Spesial</h1>
+                <p class="lead" id="recipe-description">Nasi goreng dengan bumbu spesial dan topping lengkap yang menggugah selera</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-lg-8">
+                <!-- Recipe Image -->
+                <div class="card mb-4 section-card">
+                    <div class="card-header section-header">
+                        <h5 class="mb-0"><i class="fas fa-image me-2"></i> Gambar Resep</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="assets/images/default-recipe.jpg" id="recipe-image" class="img-fluid recipe-image" alt="Nasi Goreng Spesial">
+                    </div>
+                </div>
+
+                <!-- Recipe Meta -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-4">
+                        <div class="card text-center p-3 meta-card">
+                            <i class="fas fa-clock meta-icon"></i>
+                            <h5>Waktu Masak</h5>
+                            <p class="mb-0" id="cook-time">30 menit</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center p-3 meta-card">
+                            <i class="fas fa-utensils meta-icon"></i>
+                            <h5>Porsi</h5>
+                            <p class="mb-0" id="servings">2-3 orang</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center p-3 meta-card">
+                            <i class="fas fa-fire meta-icon"></i>
+                            <h5>Tingkat Kesulitan</h5>
+                            <p class="mb-0" id="difficulty">Mudah</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="card mb-4 section-card">
+                    <div class="card-header section-header">
+                        <h5 class="mb-0"><i class="fas fa-align-left me-2"></i> Deskripsi</h5>
+                    </div>
+                    <div class="card-body">
+                        <p id="full-description">Nasi goreng spesial ini merupakan variasi nasi goreng dengan bumbu rempah yang khas dan topping lengkap seperti ayam suwir, telur, dan kerupuk. Resep ini cocok untuk sarapan atau makan malam yang praktis namun tetap lezat.</p>
+                    </div>
+                </div>
+
+                <!-- Ingredients -->
+                <div class="card mb-4 section-card">
+                    <div class="card-header section-header">
+                        <h5 class="mb-0"><i class="fas fa-shopping-basket me-2"></i> Bahan-bahan</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush" id="ingredients-list">
+                            <li class="list-group-item">2 piring nasi putih</li>
+                            <li class="list-group-item">2 siung bawang putih, cincang halus</li>
+                            <li class="list-group-item">3 siung bawang merah, iris tipis</li>
+                            <li class="list-group-item">1 buah cabai merah, iris</li>
+                            <li class="list-group-item">1 sendok makan kecap manis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Steps -->
+                <div class="card mb-4 section-card">
+                    <div class="card-header section-header">
+                        <h5 class="mb-0"><i class="fas fa-list-ol me-2"></i> Langkah-langkah</h5>
+                    </div>
+                    <div class="card-body">
+                        <ol class="list-group list-group-numbered list-group-flush" id="steps-list">
+                            <li class="list-group-item">Panaskan minyak goreng dalam wajan, tumis bawang putih dan bawang merah hingga harum.</li>
+                            <li class="list-group-item">Masukkan cabai merah, tumis sebentar hingga layu.</li>
+                            <li class="list-group-item">Tambahkan ayam suwir, aduk rata dan masak hingga ayam berubah warna.</li>
+                            <li class="list-group-item">Masukkan nasi putih, aduk rata dengan bumbu.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="card mb-4 section-card recipe-sidebar">
+                    <div class="card-header section-header">
+                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i> Informasi Resep</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-tag me-2 text-success"></i> Kategori</span>
+                                <span class="badge bg-success" id="recipe-category">Makanan Utama</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-calendar me-2 text-success"></i> Tanggal Posting</span>
+                                <span id="post-date">17 Mei 2025</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-eye me-2 text-success"></i> Dilihat</span>
+                                <span id="view-count">1,245 kali</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Related Recipes -->
+                <div class="card section-card">
+                    <div class="card-header section-header">
+                        <h5 class="mb-0"><i class="fas fa-utensils me-2"></i> Resep Terkait</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <a href="detail.html?id=2" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">Soto Ayam Lamongan</h6>
+                                    <small>1 jam</small>
+                                </div>
+                                <small class="text-muted">
+                                    <i class="fas fa-fire me-1"></i> Sedang
+                                </small>
+                            </a>
+                            <a href="detail.html?id=3" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">Brownies Kukus</h6>
+                                    <small>45 menit</small>
+                                </div>
+                                <small class="text-muted">
+                                    <i class="fas fa-fire me-1"></i> Mudah
+                                </small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="index.html" class="d-flex align-items-center mb-3 text-decoration-none">
+                        <i class="fas fa-utensils fa-2x me-2 text-success"></i>
+                        <span class="fs-4 fw-bold text-white">ResepKu</span>
+                    </a>
+                    <p class="text-muted">Temukan ribuan resep masakan dari seluruh dunia untuk memandu memasak Anda sehari-hari.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-success mb-4">Menu</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
+                        <li class="mb-2"><a href="resep.html" class="text-white text-decoration-none">Resep</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">Tentang Kami</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white text-decoration-none">Kontak</a></li>
+                        <li><a href="admin/dashboard.html" class="text-white text-decoration-none">Admin</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-success mb-4">Kategori Populer</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="resep.html?kategori=1" class="text-white text-decoration-none">
+                                <i class="fas fa-utensils me-2 text-success"></i> Makanan Utama
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="resep.html?kategori=2" class="text-white text-decoration-none">
+                                <i class="fas fa-utensils me-2 text-success"></i> Makanan Penutup
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="resep.html?kategori=3" class="text-white text-decoration-none">
+                                <i class="fas fa-utensils me-2 text-success"></i> Minuman
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-success mb-4">Newsletter</h5>
+                    <p class="text-muted">Berlangganan untuk mendapatkan resep terbaru langsung ke email Anda.</p>
+                    <form class="mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Email Anda" required>
+                            <button class="btn btn-success" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <hr class="mt-4 mb-4">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 ResepKu. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">
+                        <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+                        <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Fungsi untuk mengambil parameter ID dari URL
+        function getRecipeId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }
+
+        // Fungsi untuk menampilkan data resep berdasarkan ID
+        function loadRecipeData(recipeId) {
+            // Ini adalah data dummy - dalam implementasi nyata, Anda akan mengambil dari database/API
+            const recipes = {
+                '1': {
+                    title: "Nasi Goreng Spesial",
+                    description: "Nasi goreng dengan bumbu spesial dan topping lengkap yang menggugah selera",
+                    image: "assets/images/default-recipe.jpg",
+                    cookTime: "30 menit",
+                    servings: "2-3 orang",
+                    difficulty: "Mudah",
+                    fullDescription: "Nasi goreng spesial ini merupakan variasi nasi goreng dengan bumbu rempah yang khas dan topping lengkap seperti ayam suwir, telur, dan kerupuk. Resep ini cocok untuk sarapan atau makan malam yang praktis namun tetap lezat.",
+                    ingredients: [
+                        "2 piring nasi putih",
+                        "2 siung bawang putih, cincang halus",
+                        "3 siung bawang merah, iris tipis",
+                        "1 buah cabai merah, iris",
+                        "1 sendok makan kecap manis",
+                        "1 sendok teh garam",
+                        "1/2 sendok teh merica",
+                        "2 sendok makan minyak goreng",
+                        "1 butir telur",
+                        "50 gram ayam suwir",
+                        "1 batang daun bawang, iris"
+                    ],
+                    steps: [
+                        "Panaskan minyak goreng dalam wajan, tumis bawang putih dan bawang merah hingga harum.",
+                        "Masukkan cabai merah, tumis sebentar hingga layu.",
+                        "Tambahkan ayam suwir, aduk rata dan masak hingga ayam berubah warna.",
+                        "Masukkan nasi putih, aduk rata dengan bumbu.",
+                        "Tambahkan kecap manis, garam, dan merica. Aduk terus hingga semua bumbu tercampur rata.",
+                        "Buat lubang di tengah nasi, pecahkan telur dan orak-arik di lubang tersebut.",
+                        "Campur telur dengan nasi hingga merata.",
+                        "Terakhir masukkan daun bawang, aduk sebentar lalu angkat.",
+                        "Sajikan nasi goreng dengan topping telur mata sapi, kerupuk, dan acar jika suka."
+                    ],
+                    category: "Makanan Utama",
+                    postDate: "17 Mei 2025",
+                    viewCount: "1,245 kali"
+                },
+                '2': {
+                    title: "Soto Ayam Lamongan",
+                    description: "Soto ayam khas Lamongan dengan kuah kuning yang gurih dan koya yang khas",
+                    // ... data lainnya untuk resep 2
+                },
+                '3': {
+                    title: "Brownies Kukus",
+                    description: "Brownies kukus lembut dengan tekstur yang moist dan rasa coklat yang kaya",
+                    // ... data lainnya untuk resep 3
+                }
+            };
+
+            const recipe = recipes[recipeId] || recipes['1']; // Default ke resep pertama jika ID tidak valid
+            
+            // Update tampilan dengan data resep
+            document.getElementById('recipe-title').textContent = recipe.title;
+            document.getElementById('recipe-description').textContent = recipe.description;
+            document.getElementById('recipe-image').src = recipe.image;
+            document.getElementById('recipe-image').alt = recipe.title;
+            document.getElementById('cook-time').textContent = recipe.cookTime;
+            document.getElementById('servings').textContent = recipe.servings;
+            document.getElementById('difficulty').textContent = recipe.difficulty;
+            document.getElementById('full-description').textContent = recipe.fullDescription;
+            
+            // Update bahan-bahan
+            const ingredientsList = document.getElementById('ingredients-list');
+            ingredientsList.innerHTML = '';
+            recipe.ingredients.forEach(ingredient => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.textContent = ingredient;
+                ingredientsList.appendChild(li);
+            });
+            
+            // Update langkah-langkah
+            const stepsList = document.getElementById('steps-list');
+            stepsList.innerHTML = '';
+            recipe.steps.forEach((step, index) => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.textContent = step;
+                stepsList.appendChild(li);
+            });
+            
+            // Update info tambahan
+            document.getElementById('recipe-category').textContent = recipe.category;
+            document.getElementById('post-date').textContent = recipe.postDate;
+            document.getElementById('view-count').textContent = recipe.viewCount;
+        }
+
+        // Jalankan saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            const recipeId = getRecipeId();
+            loadRecipeData(recipeId);
+        });
+    </script>
+</body>
+</html>

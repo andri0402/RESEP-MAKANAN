@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pencarian - ResepMakanan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top" style="background: linear-gradient(90deg, #11998e, #38ef7d) !important;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-utensils me-2"></i>ResepMakanan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home me-1"></i> Beranda
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="resep.html">
+                            <i class="fas fa-book me-1"></i> Resep
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <i class="fas fa-info-circle me-1"></i> Tentang Kami
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-envelope me-1"></i> Kontak
+                        </a>
+                    </li>
+                </ul>
+                
+                <form class="d-flex me-2" action="search.html" method="GET">
+                    <div class="input-group">
+                        <input class="form-control" type="search" name="q" value="Nasi Goreng" placeholder="Cari resep..." aria-label="Search">
+                        <button class="btn btn-light" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <a href="admin/dashboard.html" class="btn btn-outline-light">
+                    <i class="fas fa-lock me-1"></i> Admin
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mt-5 pt-3">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Hasil Pencarian</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Search Results -->
+    <section class="my-5">
+        <div class="container">
+            <h2 class="fw-bold mb-4">
+                <i class="fas fa-search me-2 text-success"></i> 
+                Hasil Pencarian untuk "Nasi Goreng"
+            </h2>
+            
+            <div class="row g-4">
+                <!-- Result 1 -->
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="assets/images/default-recipe.jpg" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Nasi Goreng Spesial">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Nasi Goreng Spesial</h5>
+                                    <p class="card-text text-muted small">Nasi goreng dengan bumbu spesial dan topping lengkap yang menggugah selera. Cocok untuk sarapan atau makan malam yang praktis...</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <div>
+                                            <span class="badge bg-light text-dark me-2">
+                                                <i class="fas fa-clock me-1"></i> 30 menit
+                                            </span>
+                                            <span class="badge bg-light text-dark">
+                                                <i class="fas fa-fire me-1"></i> Mudah
+                                            </span>
+                                        </div>
+                                        <a href="detail.html?id=1" class="btn btn-sm btn-success">
+                                            <i class="fas fa-eye me-1"></i> Lihat
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Result 2 -->
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="assets/images/default-recipe.jpg" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Nasi Goreng Seafood">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Nasi Goreng Seafood</h5>
+                                    <p class="card-text text-muted small">Nasi goreng dengan campuran seafood segar seperti udang, cumi, dan kerang. Dibumbui dengan rempah-rempah pilihan...</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <div>
+                                            <span class="badge bg-light text-dark me-2">
+                                                <i class="fas fa-clock me-1"></i> 40 menit
+                                            </span>
+                                            <span class="badge bg-light text-dark">
+                                                <i class="fas fa-fire me-1"></i> Sedang
+                                            </span>
+                                        </div>
+                                        <a href="detail.html?id=4" class="btn btn-sm btn-success">
+                                            <i class="fas fa-eye me-1"></i> Lihat
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Result 3 -->
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="assets/images/default-recipe.jpg" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Nasi Goreng Jawa">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Nasi Goreng Jawa</h5>
+                                    <p class="card-text text-muted small">Nasi goreng khas Jawa dengan bumbu yang lebih pekat dan pedas. Biasanya disajikan dengan telur mata sapi dan kerupuk...</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <div>
+                                            <span class="badge bg-light text-dark me-2">
+                                                <i class="fas fa-clock me-1"></i> 35 menit
+                                            </span>
+                                            <span class="badge bg-light text-dark">
+                                                <i class="fas fa-fire me-1"></i> Sedang
+                                            </span>
+                                        </div>
+                                        <a href="detail.html?id=5" class="btn btn-sm btn-success">
+                                            <i class="fas fa-eye me-1"></i> Lihat
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Result 4 -->
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="assets/images/default-recipe.jpg" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Nasi Goreng Vegetarian">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Nasi Goreng Vegetarian</h5>
+                                    <p class="card-text text-muted small">Versi sehat dari nasi goreng dengan berbagai sayuran segar seperti wortel, buncis, jagung, dan jamur. Tanpa bahan hewani...</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <div>
+                                            <span class="badge bg-light text-dark me-2">
+                                                <i class="fas fa-clock me-1"></i> 25 menit
+                                            </span>
+                                            <span class="badge bg-light text-dark">
+                                                <i class="fas fa-fire me-1"></i> Mudah
+                                            </span>
+                                        </div>
+                                        <a href="detail.html?id=6" class="btn btn-sm btn-success">
+                                            <i class="fas fa-eye me-1"></i> Lihat
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Sebelumnya</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Selanjutnya</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Related Categories -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h4 class="fw-bold mb-4"><i class="fas fa-tags me-2 text-success"></i> Kategori Terkait</h4>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="resep.html?kategori=1" class="btn btn-outline-success btn-sm">
+                            <i class="fas fa-tag me-1"></i> Makanan Utama
+                        </a>
+                        <a href="resep.html?kategori=4" class="btn btn-outline-success btn-sm">
+                            <i class="fas fa-tag me-1"></i> Masakan Indonesia
+                        </a>
+                        <a href="resep.html?kategori=5" class="btn btn-outline-success btn-sm">
+                            <i class="fas fa-tag me-1"></i> Sarapan
+                        </a>
+                        <a href="resep.html?kategori=6" class="btn btn-outline-success btn-sm">
+                            <i class="fas fa-tag me-1"></i> Cepat Saji
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="index.html" class="d-flex align-items-center mb-3 text-decoration-none">
+                        <i class="fas fa-utensils fa-2x me-2 text-success"></i>
+                        <span class="fs-4 fw-bold text-white">ResepKu</span>
+                    </a>
+                    <p class="text-muted">Temukan ribuan resep masakan dari seluruh dunia untuk memandu memasak Anda sehari-hari.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-success mb-4">Menu</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
+                        <li class="mb-2"><a href="resep.html" class="text-white text-decoration-none">Resep</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">Tentang Kami</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white text-decoration-none">Kontak</a></li>
+                        <li><a href="admin/dashboard.html" class="text-white text-decoration-none">Admin</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-success mb-4">Kategori Populer</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="resep.html?kategori=1" class="text-white text-decoration-none">
+                                <i class="fas fa-utensils me-2 text-success"></i> Makanan Utama
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="resep.html?kategori=2" class="text-white text-decoration-none">
+                                <i class="fas fa-utensils me-2 text-success"></i> Makanan Penutup
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="resep.html?kategori=3" class="text-white text-decoration-none">
+                                <i class="fas fa-utensils me-2 text-success"></i> Minuman
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-success mb-4">Newsletter</h5>
+                    <p class="text-muted">Berlangganan untuk mendapatkan resep terbaru langsung ke email Anda.</p>
+                    <form class="mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Email Anda" required>
+                            <button class="btn btn-success" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <hr class="mt-4 mb-4">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 ResepKu. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">
+                        <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+                        <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
